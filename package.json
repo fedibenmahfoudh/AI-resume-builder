@@ -31,7 +31,8 @@
     "react-simple-wysiwyg": "^3.1.2",
     "react-web-share": "^2.0.2",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "vercel": "^37.5.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
