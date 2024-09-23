@@ -7,6 +7,7 @@ import { AllRoutes } from "./routes/AllRoutes.jsx";
 import { ClerkProvider } from "@clerk/clerk-react";
 import { Header } from "./components/Header.jsx";
 import { Footer } from "./components/Footer.jsx";
+import { ScrollToTop } from "./components/ScrollToTop.jsx";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 if (!PUBLISHABLE_KEY) {
@@ -16,6 +17,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
       <BrowserRouter>
+        <ScrollToTop />
         <Header />
         <AllRoutes />
         <Footer />

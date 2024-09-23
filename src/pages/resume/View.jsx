@@ -7,8 +7,10 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ResumePreview } from "./components/ResumePreview";
 import { RWebShare } from "react-web-share";
+import { useToast } from "@/hooks/use-toast";
 
 export const View = () => {
+  const { toast } = useToast();
   const [resumeInfo, setResumeInfo] = useState();
   const { id } = useParams();
 
@@ -17,10 +19,9 @@ export const View = () => {
       const resumeRef = doc(db, "userResumes", id);
       const resume = await getDoc(resumeRef);
       if (resume.exists()) {
-        console.log(resume.data());
         setResumeInfo(resume.data());
       } else {
-        console.log("no such document");
+        throw new Error("Resume Data Not Found");
       }
     };
     getResumeInfo();
@@ -47,14 +48,19 @@ export const View = () => {
             <RWebShare
               data={{
                 text: "Hello Everyone, This is my resume please open url to see it",
-                url: `${import.meta.env.VITE_BASE_URL}my-resume/${id}/view`,
+                url: `${import.meta.env.VITE_BASE_URL}/my-resume/${id}/view`,
                 title:
                   resumeInfo?.firstName +
                   " " +
                   resumeInfo?.lastName +
                   " resume",
               }}
-              onClick={() => console.log("shared successfully!")}
+              onClick={() =>
+                toast({
+                  title: "Validation",
+                  description: "Shared Successfully",
+                })
+              }
             >
               <Button>Share</Button>
             </RWebShare>
