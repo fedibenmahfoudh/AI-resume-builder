@@ -23,9 +23,71 @@ export const Member = () => {
       gender: "female",
     },
     {
+      name: "Skander Sghaier",
+      poste: "Tresorier",
+      gender: "male",
+    },
+    {
       name: "Mazen Toraa",
       poste: "Responsable Formation Dev",
       gender: "male",
+    },
+
+    {
+      name: "Aziz Harzallah",
+      poste: "Responsable Formation Robotique",
+      gender: "male",
+    },
+    {
+      name: "Aya Hosni",
+      poste: "Responsable Technique",
+      gender: "female",
+    },
+
+    {
+      name: "Jawhar Soussia",
+      poste: "Chef Comite Tout terrain",
+      gender: "male",
+    },
+    {
+      name: "Khadija Elloumi",
+      poste: "Chef Comite Junior",
+      gender: "female",
+    },
+    {
+      name: "Najah Zroud",
+      poste: "Chef Comite Autonome",
+      gender: "female",
+    },
+    {
+      name: "Mouhib Ghanmi",
+      poste: "Chef Comite Fighter",
+      gender: "male",
+    },
+    {
+      name: "Tasnim Zroud",
+      poste: "Chef Comite Media",
+      gender: "female",
+    },
+    {
+      name: "Yassin Medhioub",
+      poste: "Chef Comite Sponsoring",
+      gender: "male",
+    },
+    {
+      name: "Ahmed Merchaoui",
+      poste: "Chef Comite Design",
+      gender: "male",
+    },
+    {
+      name: "Fatma slama",
+      poste: "Chef Comite Logistique",
+      gender: "female",
+    },
+    {
+      name: "Ranim radhouani",
+      poste: "Chef Comite Affaires Externes",
+      gender: "female",
     },
   ];
   return (
@@ -40,8 +102,8 @@ export const Member = () => {
             and banking support without any further issues
           </p>
         </div>
-        <div className="swiper teamswiper pb-10">
-          <div className="swiper-wrapper grid grid-cols-2 ">
+        <div className="swiper teamswiper pb-10 ">
+          <div className="swiper-wrapper flex flex-col items-center sm:grid sm:grid-cols-2">
             {members.map((member, index) => (
               <div className="swiper-slide" key={index}>
                 <div className="group w-full flex-wrap flex items-center gap-8 flex-col md:flex-row transition-all duration-500 p-8 lg:flex-nowrap">

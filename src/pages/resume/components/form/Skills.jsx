@@ -57,17 +57,17 @@ export const Skills = () => {
   const onSave = async () => {
     setLoading(true);
     const data = {
-      jobTitle: resumeInfo?.title,
-      firstName: resumeInfo?.firstName,
-      lastName: resumeInfo?.lastName,
-      email: resumeInfo?.email,
-      address: resumeInfo?.address,
-      phone: resumeInfo?.phone,
-      themeColor: resumeInfo?.themeColor,
-      skills: resumeInfo?.skills,
-      Experience: resumeInfo?.Experience,
-      education: resumeInfo?.education,
-      summery: resumeInfo?.summery,
+      jobTitle: resumeInfo?.title || "",
+      firstName: resumeInfo?.firstName || "",
+      lastName: resumeInfo?.lastName || "",
+      email: resumeInfo?.email || "",
+      address: resumeInfo?.address || "",
+      phone: resumeInfo?.phone || "",
+      themeColor: resumeInfo?.themeColor || "",
+      skills: resumeInfo?.skills || "",
+      Experience: resumeInfo?.Experience || "",
+      education: resumeInfo?.education || "",
+      summery: resumeInfo?.summery || "",
     };
 
     const resumeRef = doc(db, "userResumes", id);

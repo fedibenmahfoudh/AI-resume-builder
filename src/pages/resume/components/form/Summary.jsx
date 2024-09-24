@@ -11,7 +11,7 @@ import { useParams } from "react-router-dom";
 
 const prompt =
   "Job Title: {jobTitle} , Depends on job title give me list of  summery for 3 experience level, Mid Level and Freasher level in 3 -4 lines in array format, With summery and experience_level Field in JSON Format with random values";
-export const Summary = () => {
+export const Summary = ({ setAllowNext }) => {
   const { toast } = useToast();
   const { id } = useParams();
   const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);
@@ -59,14 +59,23 @@ export const Summary = () => {
   //       setLoading(false);
   //     });
   // }
-
+  async function onSave(e) {
+    e.preventDefault();
+    setLoading(true);
+    if (e.target.summery === "") {
+      setLoading(false);
+    } else {
+      setLoading(false);
+      setAllowNext(true);
+    }
+  }
   return (
     <div>
       <div className="p-5 shadow-lg rounded-lg border-t-primary border-t-4 mt-10">
         <h2 className="font-bold text-lg">Summery</h2>
         <p>Add Summery for your job title</p>
 
-        <form className="mt-7">
+        <form className="mt-7" onSubmit={onSave}>
           <div className="flex justify-between items-end">
             <label>Add Summery</label>
             <Button
@@ -95,9 +104,9 @@ export const Summary = () => {
             onChange={(e) => setSummery(e.target.value)}
           />
           <div className="mt-2 flex justify-end">
-            {/* <Button type="submit" disabled={loading}>
+            <Button type="submit" disabled={loading}>
               {loading ? <LoaderCircle className="animate-spin" /> : "Save"}
-            </Button> */}
+            </Button>
           </div>
         </form>
       </div>

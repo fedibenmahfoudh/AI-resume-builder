@@ -19,8 +19,8 @@ export const Header = () => {
             className="flex items-center space-x-0 rtl:space-x-reverse"
           >
             <img src={logo} width={70} height={70} alt="Flowbite Logo" />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              CVPRO AI
+            <span className="self-center text-2xl text-primary font-semibold whitespace-nowrap dark:text-white">
+              CVPRO
             </span>
           </Link>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -77,7 +77,7 @@ export const Header = () => {
                   className={({ isActive }) =>
                     isActive ? activeClass : inActiveClass
                   }
-                  ariaCurrent="page"
+                  aria-current="page"
                 >
                   Home
                 </NavLink>
